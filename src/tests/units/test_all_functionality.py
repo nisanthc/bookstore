@@ -230,7 +230,7 @@ class TestIntController(object):
         assert response.status_code == 200
         assert json.loads(response.data) == expected
 
-    def test_path_method(self, app, setup_database_data):
+    def test_patch_method(self, app, setup_database_data):
 
         patch_data = {
                     "name": "Davinci code",
@@ -279,7 +279,7 @@ class TestIntController(object):
         assert response.status_code == 200
         assert json.loads(response.data) == expected
 
-    def test_path_method_with_400(self, app, setup_database_data):
+    def test_patch_method_with_400(self, app, setup_database_data):
 
         patch_data = {
                     "name": "Davinci code",
@@ -289,45 +289,39 @@ class TestIntController(object):
                     "isbn" : "123-456575",
                     "number_of_pages" : 700,
                     "release_date": "2019-01-20"
-                }
-
-        expected = {
-                    "status_code": 200,
-                    "status": "success",
-                    "message": "The book Davinci code was updated successfully",
-                    "data": {
-                        "id": 10,
-                        "name": "Davinci code",
-                        "isbn": "123-456575",
-                        "number_of_pages": 700,
-                        "publisher": "Code Books",
-                        "country": "UK States",
-                        "release_date": "2019-01-20",
-                        "authors": [
-                            "Leo",
-                            "Tata",
-                            "Ratan"
-                        ]
-                    }
                 }
 
         data = json.dumps(patch_data)
         response = app.patch('/api/v1/books/', headers=headers, data=data)
         assert response.status_code == 400
 
-
     def test_delete_method_with_404(self, app, setup_database_data):
 
-        expected = {
-                    "status_code": 200,
-                    "status": "success",
-                    "message": "The book Jungle Book was deleted successfully",
-                    "data": []
-                }
         response = app.delete('/api/v1/books/', headers=headers)
         assert response.status_code == 400
 
-    def test_path_method_with_400(self, app, setup_database_data):
+    def test_patch_method_with_400(self, app, setup_database_data):
+
+        patch_data = {
+                    "name": "Davinci code",
+                    "authors": ["Leo","Tata","Ratan"],
+                    "publisher": "Code Books",
+                    "country": "UK States",
+                    "isbn" : "123-456575",
+                    "number_of_pages" : 700,
+                    "release_date": "2019-01-20"
+                }
+
+        data = json.dumps(patch_data)
+        response = app.patch('/api/v1/books/99999', headers=headers, data=data)
+        assert response.status_code == 404
+
+    def test_delete_method_with_404(self, app, setup_database_data):
+
+        response = app.delete('/api/v1/books/9999999', headers=headers)
+        assert response.status_code == 404
+
+    def test_patch_method_with_unsupported_contenttype(self, app, setup_database_data):
 
         patch_data = {
                     "name": "Davinci code",
@@ -359,18 +353,26 @@ class TestIntController(object):
                     }
                 }
 
+        headers['Content-Type'] = "text/plain"
         data = json.dumps(patch_data)
         response = app.patch('/api/v1/books/99999', headers=headers, data=data)
-        assert response.status_code == 404
+        assert response.status_code == 400
+
+    def test_post_method_with_unsupported_contenttype(self, app, setup_database_data):
+
+        new_book = {
+            "name": "Game of thorns",
+            "isbn": "978-0553103540",
+            "authors": ["Mukund", "Sherk"],
+            "number_of_pages": 450,
+            "publisher": "Martin Books",
+            "country": "UK",
+            "release_date": "2018-09-10"
+        }
+        data = json.dumps(new_book)
+
+        headers['Content-Type'] = "text/plain"
+        response = app.post('/api/v1/books/', headers=headers, data=data)
+        assert response.status_code == 400
 
 
-    def test_delete_method_with_404(self, app, setup_database_data):
-
-        expected = {
-                    "status_code": 200,
-                    "status": "success",
-                    "message": "The book Jungle Book was deleted successfully",
-                    "data": []
-                }
-        response = app.delete('/api/v1/books/9999999', headers=headers)
-        assert response.status_code == 404
