@@ -63,9 +63,7 @@
 ### Setup Project
 
 Download zip file (https://github.com/nisanthc/bookstore/archive/master.zip) & unzip the same 
-
-or 
-
+or
 Clone (https://github.com/nisanthc/bookstore.git) the bookstore project.
 
 Assuming downloaded bookstore project is available under following location
