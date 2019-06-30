@@ -9,13 +9,13 @@
     1. Download MySQL using below URL
          https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.26-winx64.zip
     2. Extract the zip file (mysql-5.7.26-winx64)
-    3. Copy the mysql-5.7.26-winx64 into any drive C: or E:
-    4. Rename the folder to Mysql
-    5. Open command prompt and GoTO the Mysql/bin folder
+    3. Copy the mysql-5.7.26-winx64 into E:
+    4. Rename the folder mysql-5.7.26-winx64 to Mysql
+    5. Open command prompt and GoTO the E:/Mysql/bin folder
     6. Run the below commands to Start the Mysql
         1. mysqld --initialize-insecure
         2. mysqld --console
-        Note: Don't Close this cmd shell, because Mysql is running in console
+        **Note: Don't close this cmd shell, because Mysql is running in console**
     7. Open another command prompt and GoTo the Mysql/bin and run the below command to check
         1. mysql -u root --skip-password
 
@@ -52,7 +52,7 @@ Assuming downloaded bookstore project is available under following location
 E:\workplace\bookstore
 
     1. Setting up databases
-        1. Open command prompt, and Go to Mysql/bin folder
+        1. Open command prompt, and Go to E:/Mysql/bin folder
         2. Run the below command to restore
             E:\Mysql\bin>mysql -u root <  E:\workplace\bookstore\src\db\books_schema.sql
     2. Setup and Run project
@@ -66,6 +66,7 @@ E:\workplace\bookstore
         4) Goto the folder E:\workplace\bookstore\src
         5) Start the project by running routes.py
             E:\workplace\bookstore\src> python routes.py
+            **Note: Don't close this cmd shell, because flask application is running**
         6) Open browser and type the below URL to check
                 http://127.0.0.1:8080/api/external-books/?name=The Hedge Knight
 
