@@ -38,7 +38,7 @@
         Note: If you are getting below error, then need to the python path into environment variable
               E:\>python --version
                 'python' is not recognized as an internal or external command,operable program or batch file.
-        Please go through this video to setup python path toenvironment
+        Please go through this video to setup python path to environment variable
             https://www.youtube.com/watch?v=OS5EgtMQrmQ
     
     4. Installing required python package for this project
@@ -65,7 +65,7 @@ E:\workplace\bookstore
             E:\Mysql\bin>mysql -u root <  E:\workplace\bookstore\src\db\books_schema.sql
     
     2. Setup and Run project
-        1. Add project path to PYTHONPATH in environment(either by using GUI or command prompt)
+        1. Add project path to PYTHONPATH in environment variable(either by using GUI or command prompt)
            If you are adding command prompt, it is temporary. PYTHONPATH variable is available only
            to that cmd shell.
         2) Open command prompt
