@@ -55,7 +55,9 @@
            E:\> pip install -r requirements.txt
 
 ### Setup Project
-Download zip file (https://github.com/nisanthc/bookstore/archive/master.zip) or Clone (https://github.com/nisanthc/bookstore.git) the bookstore project
+
+Download zip file (https://github.com/nisanthc/bookstore/archive/master.zip) & unzip the same or Clone (https://github.com/nisanthc/bookstore.git) the bookstore project.
+
 Assuming downloaded bookstore project is available under following location
 E:\workplace\bookstore
 
