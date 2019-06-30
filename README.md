@@ -1,7 +1,5 @@
 # bookstore
 
-This bookstore project is used to book management.
-
 **This project is created in Windows 10**
 
 ## STEPS for Installation
