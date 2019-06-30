@@ -33,10 +33,10 @@
     2. Install the downloaded python exe
     
     3. Go to cmd and type python to check the version
-        E:\>python --version
+        E:\> python --version
             Python 3.6.5
         Note: If you are getting below error, then need to the python path into environment variable
-        E:\>python --version
+        E:\> python --version
             'python' is not recognized as an internal or external command,operable program or batch file.
         Please go through this video to setup python path to environment variable
             https://www.youtube.com/watch?v=OS5EgtMQrmQ
@@ -64,22 +64,29 @@ Assuming downloaded bookstore project is available under following location
 E:\workplace\bookstore-master
 
     1. Setting up databases
+        
         1. Open command prompt, and Go to E:\Mysql\bin folder
+        
         2. Run the below command to restore
-            E:\Mysql\bin>mysql -u root <  E:\workplace\bookstore-master\src\db\books_schema.sql
+            mysql -u root <  E:\workplace\bookstore-master\src\db\books_schema.sql
     
     2. Setup and Run project
+        
         1. Add project path to PYTHONPATH in environment variable(either by using GUI or command prompt)
            If you are adding command prompt, it is temporary. PYTHONPATH variable is available only
            to that cmd shell.
-        2) Open command prompt
-        3) Run the below command
-            E:\> set PYTHONPATH=E:\workplace\bookstore-master\src
-        4) Goto the folder E:\workplace\bookstore-master\src
-        5) Start the project by running routes.py
-            E:\workplace\bookstore-master\src> python routes.py
+        
+        2. Open command prompt
+        
+        3. Run the below command
+            set PYTHONPATH=E:\workplace\bookstore-master\src
+        
+        4. Start the project by running routes.py
+            python E:\workplace\bookstore-master\src\routes.py
+        
             Note: Don't close this cmd shell, because flask application is running
-        6) Open browser and type the below URL to check
+        
+        5. Open browser and type the below URL to check
                 http://127.0.0.1:8080/api/external-books/?name=The Hedge Knight
 
 
