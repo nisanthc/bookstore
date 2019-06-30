@@ -20,6 +20,7 @@ class ExternalBooksController(Resource):
     This is a controller class for managing external books REST API
 
     """
+
     def get(self):
         """
         This is a GET method used to get the books by using filter name
@@ -83,6 +84,7 @@ class InternalBooksController(Resource):
     This is a controller class for managing internal books REST API
 
     """
+
     def get(self, id=None):
         """
         This is the GET method used to get
@@ -198,6 +200,9 @@ class InternalBooksController(Resource):
         """
         try:
             logger.info("Entering InternalBooksController POST method")
+            if not request.content_type == 'application/json':
+                raise ValidationError("Given content type : {} is not acceptable."
+                                      " Accepted content type is application/json ".format(request.content_type))
 
             request_data = request.get_json()
             validate(request_data, post_schema, format_checker=jsonschema.FormatChecker())
@@ -221,7 +226,7 @@ class InternalBooksController(Resource):
             logger.exception("Un-handled Exception :: {}".format(err))
             abort(500, "Internal Server Error")
 
-    def patch(self, id= None):
+    def patch(self, id=None):
         """
         This is the UPDATE method used to Update the existing book
         Request :
@@ -247,6 +252,10 @@ class InternalBooksController(Resource):
         """
         try:
             logger.info("Entering InternalBooksController PATCH method")
+
+            if not request.content_type == 'application/json':
+                raise ValidationError("Given content type : {} is not acceptable."
+                                      " Accepted content type is application/json ".format(request.content_type))
 
             if not id:
                 raise ValidationError("Resource id is not given")
@@ -277,7 +286,7 @@ class InternalBooksController(Resource):
             logger.exception("Un-handled Exception :: {}".format(err))
             abort(500, "Internal Server Error")
 
-    def delete(self, id= None):
+    def delete(self, id=None):
 
         try:
             logger.info("Entering InternalBooksController DELETE method")
