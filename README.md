@@ -82,9 +82,11 @@ E:\workplace\bookstore-master
         
         2. Run the below command
             set PYTHONPATH=E:\workplace\bookstore-master\src
+            
+        3. GoTo to folder E:\workplace\bookstore-master\src\
         
-        3. Start the project by running routes.py
-            python E:\workplace\bookstore-master\src\routes.py
+        3. Run the below command 
+            python routes.py
         
             Note: Don't close this cmd shell, because flask application is running
         
