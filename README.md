@@ -77,18 +77,16 @@ E:\workplace\bookstore-master
             mysql -u root <  E:\workplace\bookstore-master\src\db\books_schema.sql
     
     2. Setup and Run project
+       
+        1. Open command prompt
         
-        1. Add project path to PYTHONPATH in environment variable(either by using GUI or command prompt)
-                 
-        2. Open command prompt
-        
-        3. Run the below command
+        2. Run the below command
             set PYTHONPATH=E:\workplace\bookstore-master\src
         
-        4. Start the project by running routes.py
+        3. Start the project by running routes.py
             python E:\workplace\bookstore-master\src\routes.py
         
             Note: Don't close this cmd shell, because flask application is running
         
-        5. Open browser and type the below URL to check
+        4. Open browser and type the below URL to check
                 http://127.0.0.1:8080/api/external-books/?name=The Hedge Knight
