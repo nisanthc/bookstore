@@ -3,7 +3,7 @@
 **This project is created in Windows 10**
 
 ## STEPS for Installation
-=========================
+
 ### MySQL Installation
 -------------------
     1. Download MySQL using below URL
