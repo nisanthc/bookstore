@@ -15,7 +15,7 @@
     6. Run the below commands to Start the Mysql
         1. mysqld --initialize-insecure
         2. mysqld --console
-        **Note: Don't close this cmd shell, because Mysql is running in console**
+        Note: Don't close this cmd shell, because Mysql is running in console
     7. Open another command prompt and GoTo the Mysql/bin and run the below command to check
         1. mysql -u root --skip-password
 
@@ -66,7 +66,7 @@ E:\workplace\bookstore
         4) Goto the folder E:\workplace\bookstore\src
         5) Start the project by running routes.py
             E:\workplace\bookstore\src> python routes.py
-            **Note: Don't close this cmd shell, because flask application is running**
+            Note: Don't close this cmd shell, because flask application is running
         6) Open browser and type the below URL to check
                 http://127.0.0.1:8080/api/external-books/?name=The Hedge Knight
 
