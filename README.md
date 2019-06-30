@@ -80,7 +80,7 @@ E:\workplace\bookstore-master
        
         1. Open command prompt
         
-        2. Run the below command
+        2. Run the below command to set project path
             set PYTHONPATH=E:\workplace\bookstore-master\src
             
         3. GoTo to folder E:\workplace\bookstore-master\src\
