@@ -43,7 +43,7 @@
     
     4. Installing required python package for this project
     
-        1. Create requirements.txt & the below lines in it. Finally save it under E: drive
+        1. Create requirements.txt & add the below lines in it. And save it under E: drive
             Flask==0.10.1
             flask-restful==0.3.7
             requests==2.22.0
@@ -94,14 +94,3 @@ E:\workplace\bookstore-master
         
         5. Open browser and type the below URL to check
                 http://127.0.0.1:8080/api/external-books/?name=The Hedge Knight
-
-
-
-
-
-
-
-
-
-
-
