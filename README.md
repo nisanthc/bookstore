@@ -7,7 +7,7 @@
 ### MySQL Installation
 
     1. Download MySQL using below URL
-         https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.26-winx64.zip
+        https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.26-winx64.zip
     
     2. Extract the zip file (mysql-5.7.26-winx64)
     
@@ -18,21 +18,23 @@
     5. Open command prompt and GoTO the E:\Mysql\bin folder
     
     6. Run the below commands to Start the Mysql
+    
         1. mysqld --initialize-insecure
+        
         2. mysqld --console
-        Note: Don't close this cmd shell, because Mysql is running in console
+        Note: Don't close this cmd shell, because Mysql is running in this console
     
     7. Open another command prompt and GoTo the E:\Mysql\bin and run the below command to check
-        1. mysql -u root --skip-password
+        mysql -u root --skip-password
 
 ### Python Installation
 
     1. Download Python using below link
         https://www.python.org/ftp/python/3.6.5/python-3.6.5-amd64.exe
 
-    2. Install the downloaded python exe
+    2. Install the downloaded python-3.6.5-amd64.exe
     
-    3. Go to cmd and type python to check the version
+    3. Go to command prompt and type python to check the version
         E:\> python --version
             Python 3.6.5
         Note: If you are getting below error, then need to the python path into environment variable
