@@ -36,21 +36,21 @@
         E:\>python --version
             Python 3.6.5
         Note: If you are getting below error, then need to the python path into environment variable
-              E:\>python --version
-                'python' is not recognized as an internal or external command,operable program or batch file.
+        E:\>python --version
+            'python' is not recognized as an internal or external command,operable program or batch file.
         Please go through this video to setup python path to environment variable
             https://www.youtube.com/watch?v=OS5EgtMQrmQ
     
     4. Installing required python package for this project
         1. Create requirements.txt and add the below lines in it
-            pip install Flask==0.10.1
-            pip install flask-restful==0.3.7
-            pip install requests==2.22.0
-            pip install jsonschema==3.0.1
-            pip install mysql-connector-python==8.0.16
-            pip install pytest==5.0.0
-            pip install pytest-cov==2.7.1
-            pip install pytest-html==1.21.1
+            Flask==0.10.1
+            flask-restful==0.3.7
+            requests==2.22.0
+            jsonschema==3.0.1
+            mysql-connector-python==8.0.16
+            pytest==5.0.0
+            pytest-cov==2.7.1
+            pytest-html==1.21.1
         2. Run the below command in command prompt
            E:\> pip install -r requirements.txt
 
