@@ -56,15 +56,17 @@
 
 ### Setup Project
 
-Download zip file (https://github.com/nisanthc/bookstore/archive/master.zip) & unzip the same or Clone (https://github.com/nisanthc/bookstore.git) the bookstore project.
+Download zip file (https://github.com/nisanthc/bookstore/archive/master.zip) & unzip the same 
+or 
+Clone (https://github.com/nisanthc/bookstore.git) the bookstore project.
 
 Assuming downloaded bookstore project is available under following location
-E:\workplace\bookstore
+E:\workplace\bookstore-master
 
     1. Setting up databases
         1. Open command prompt, and Go to E:\Mysql\bin folder
         2. Run the below command to restore
-            E:\Mysql\bin>mysql -u root <  E:\workplace\bookstore\src\db\books_schema.sql
+            E:\Mysql\bin>mysql -u root <  E:\workplace\bookstore-master\src\db\books_schema.sql
     
     2. Setup and Run project
         1. Add project path to PYTHONPATH in environment variable(either by using GUI or command prompt)
@@ -72,10 +74,10 @@ E:\workplace\bookstore
            to that cmd shell.
         2) Open command prompt
         3) Run the below command
-            E:\> set PYTHONPATH=E:\workplace\bookstore\src
-        4) Goto the folder E:\workplace\bookstore\src
+            E:\> set PYTHONPATH=E:\workplace\bookstore-master\src
+        4) Goto the folder E:\workplace\bookstore-master\src
         5) Start the project by running routes.py
-            E:\workplace\bookstore\src> python routes.py
+            E:\workplace\bookstore-master\src> python routes.py
             Note: Don't close this cmd shell, because flask application is running
         6) Open browser and type the below URL to check
                 http://127.0.0.1:8080/api/external-books/?name=The Hedge Knight
