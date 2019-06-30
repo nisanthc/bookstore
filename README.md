@@ -42,7 +42,8 @@
             https://www.youtube.com/watch?v=OS5EgtMQrmQ
     
     4. Installing required python package for this project
-        1. Create requirements.txt and add the below lines in it
+    
+        1. Create requirements.txt & the below lines in it. Finally save it under E: drive
             Flask==0.10.1
             flask-restful==0.3.7
             requests==2.22.0
@@ -51,13 +52,18 @@
             pytest==5.0.0
             pytest-cov==2.7.1
             pytest-html==1.21.1
-        2. Run the below command in command prompt
-           E:\> pip install -r requirements.txt
+            
+        2. Open command prompt and goto the requirement.txt folder (E:)
+        
+        3. Run the below command
+           pip install -r requirements.txt
 
 ### Setup Project
 
 Download zip file (https://github.com/nisanthc/bookstore/archive/master.zip) & unzip the same 
+
 or 
+
 Clone (https://github.com/nisanthc/bookstore.git) the bookstore project.
 
 Assuming downloaded bookstore project is available under following location
