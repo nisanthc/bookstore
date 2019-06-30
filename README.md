@@ -79,9 +79,7 @@ E:\workplace\bookstore-master
     2. Setup and Run project
         
         1. Add project path to PYTHONPATH in environment variable(either by using GUI or command prompt)
-           If you are adding command prompt, it is temporary. PYTHONPATH variable is available only
-           to that cmd shell.
-        
+                 
         2. Open command prompt
         
         3. Run the below command
