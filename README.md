@@ -3,7 +3,7 @@
 **This project is created in Windows 10**
 
 ## STEPS for Installation
-======================
+=========================
 ### MySQL Installation
 -------------------
     1. Download MySQL using below URL
@@ -48,7 +48,7 @@
            E:\> pip install -r requirements.txt
 
 ### Setup Project
-=================
+------------------------------------
 Assuming downloaded bookstore project is available under following location
 E:\workplace\bookstore
 
@@ -69,7 +69,7 @@ E:\workplace\bookstore
         E:\workplace\bookstore\src> python routes.py
     6) Open browser and type the below URL to check
             http://127.0.0.1:8080/api/external-books/?name=The Hedge Knight
-
+-------------------------------------
 
 
 
