@@ -92,3 +92,23 @@ E:\workplace\bookstore-master
         
         4. Open browser and type the below URL to check
                 http://127.0.0.1:8080/api/external-books/?name=The Hedge Knight
+
+
+### Steps to run Unit & Functionality test
+
+    1. Open command prompt
+    
+    2. Run the below command to set project path
+        set PYTHONPATH=E:\workplace\bookstore-master\src
+    
+    3. GoTo to folder E:\workplace\bookstore-master\src\
+    
+    4. Run the below command
+        py.test --cov books --cov-report html --html pytest_report.html
+    
+    5. To check pytest report, open the below html file
+        E:\workplace\bookstore-master\src\tests\units\pytest_report.html
+            
+    6. To check unit test coverage report, open the below html file
+        E:\workplace\bookstore-master\src\tests\units\htmlcov\index.html
+    
