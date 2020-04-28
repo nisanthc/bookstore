@@ -1,114 +1,62 @@
 # bookstore
 
-**This project is created in Windows 10**
-
 ## STEPS for Installation
 
-### MySQL Installation
+### Docker Installation
 
-    1. Download MySQL using below URL
-        https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.26-winx64.zip
-    
-    2. Extract the zip file (mysql-5.7.26-winx64)
-    
-    3. Copy the mysql-5.7.26-winx64 into E:
-    
-    4. Rename the folder mysql-5.7.26-winx64 to Mysql
-    
-    5. Open command prompt and GoTO the E:\Mysql\bin folder
-    
-    6. Run the below commands to Start the Mysql
-    
-        1. mysqld --initialize-insecure
+    1. Go to virutaul Machine or Host
+            
+    2. Install Docker using below commands
+        1. sudo yum install -y yum-utils
+        2. sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+        3. sudo yum install docker-ce docker-ce-cli containerd.io
+        4. sudo systemctl start docker
+            
+    3. Check the installation
+        1. sudo docker run hello-world
         
-        2. mysqld --console
-        Note: Don't close this cmd shell, because Mysql is running in this console
+    4. Download Book Store App
+       Download zip file (https://github.com/nisanthc/bookstore/archive/master.zip) & unzip the same or Clone (https://github.com/nisanthc/bookstore.git) the bookstore project.
+
+### MySQL
+
+    1. Go to virutaul Machine or Host
+            
+    2. Create following folder
+        1. sudo mkdir -p /media/book-mysql
     
-    7. Open another command prompt and GoTo the E:\Mysql\bin and run the below command to check
-        mysql -u root --skip-password
+    3. Run the below docker command to start MySQL
+       docker run --name book-mysql -d -e MYSQL_ROOT_PASSWORD="admin123" -e MYSQL_DATABASE=book_store -e MYSQL_USER=book -e MYSQL_PASSWORD="book123" -e TZ=America/Pacific -p 3306:3306 -v /media/book-mysql:/var/lib/mysql mysql:5.7.29
+       
+    4. Check the MySQL 
+       docker ps
+       
+    5. Run the MySQL command to set up database
+       docker exec -i book-mysql mysql  -u book -p'book123' < bookstore/src/db/books_schema.sql
 
 ### Python Installation
 
-    1. Download Python using below link
-        https://www.python.org/ftp/python/3.6.5/python-3.6.5-amd64.exe
-
-    2. Install the downloaded python-3.6.5-amd64.exe
+    1. Build the Book Store docker image
+        1. Goto the bookstore folder
+        2. Build the docker image
+           docker build -t book_store_image .
+     
+    2. Start the Book Store App
+        1. Create a log folder 
+           sudo mkdir -p /media/book-app
+        2. Run the Docker container
+             docker run -d -p 5000:5000 --link book-mysql -e DB_HOST=book-mysql -e DB_USER=book -e DB_PASSWORD=book123 -e DB_DATABASE=book_store -e DB_PORT=3306 -v /media/book-app/:/logs --name book_store_app book_store_image
     
-    3. Go to command prompt and type python to check the version
-        E:\> python --version
-            Python 3.6.5
-        Note: If you are getting below error, then need to the python path into environment variable
-        E:\> python --version
-            'python' is not recognized as an internal or external command,operable program or batch file.
-        Please go through this video to setup python path to environment variable
-            https://www.youtube.com/watch?v=OS5EgtMQrmQ
-    
-    4. Installing required python package for this project
-    
-        1. Create requirements.txt & add the below lines in it. And save it under E: drive
-            Flask==0.10.1
-            flask-restful==0.3.7
-            requests==2.22.0
-            jsonschema==3.0.1
-            mysql-connector-python==8.0.16
-            pytest==5.0.0
-            pytest-cov==2.7.1
-            pytest-html==1.21.1
-            
-        2. Open command prompt and goto the requirement.txt folder (E:)
-        
-        3. Run the below command
-           pip install -r requirements.txt
-
-### Setup Project
-
-Download zip file (https://github.com/nisanthc/bookstore/archive/master.zip) & unzip the same 
-or
-Clone (https://github.com/nisanthc/bookstore.git) the bookstore project.
-
-Assuming downloaded bookstore project is available under following location
-E:\workplace\bookstore-master
-
-    1. Setting up databases
-        
-        1. Open command prompt, and Go to E:\Mysql\bin folder
-        
-        2. Run the below command to restore
-            mysql -u root <  E:\workplace\bookstore-master\src\db\books_schema.sql
-    
-    2. Setup and Run project
-       
-        1. Open command prompt
-        
-        2. Run the below command to set project path
-            set PYTHONPATH=E:\workplace\bookstore-master\src
-            
-        3. GoTo to folder E:\workplace\bookstore-master\src\
-        
-        3. Run the below command 
-            python routes.py
-        
-            Note: Don't close this cmd shell, because flask application is running
-        
-        4. Open browser and type the below URL to check
-                http://127.0.0.1:8080/api/external-books/?name=The Hedge Knight
-
+    3. Open the below URL in browser
+         http://127.0.0.1:5000/api/external-books/  or 
+         http://<<yourip>>:5000/api/external-books/
+   
 
 ### Steps to run Unit & Functionality test
 
-    1. Open command prompt
-    
-    2. Run the below command to set project path
-        set PYTHONPATH=E:\workplace\bookstore-master\src
-    
-    3. GoTo to folder E:\workplace\bookstore-master\src\
-    
-    4. Run the below command
-        py.test --cov books --cov-report html --html pytest_report.html
-    
-    5. To check pytest report, open the below html file
-        E:\workplace\bookstore-master\src\tests\units\pytest_report.html
-            
-    6. To check unit test coverage report, open the below html file
-        E:\workplace\bookstore-master\src\tests\units\htmlcov\index.html
-    
+    1. Go into the Book Store container
+        docker exec -it book_store_app /bin/sh 
+       
+    2. Run the below command
+        py.test --cov books --cov-report html --html pytest_report.html    
+      
