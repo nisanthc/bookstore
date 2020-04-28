@@ -1,0 +1,8 @@
+Flask==0.10.1
+flask-restful==0.3.7
+requests==2.22.0
+jsonschema==3.0.1
+mysql-connector-python==8.0.16
+pytest==5.0.0
+pytest-cov==2.7.1
+pytest-html==1.21.1
