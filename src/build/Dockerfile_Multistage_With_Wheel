@@ -1,0 +1,25 @@
+#FROM python:3.7-slim AS compile-image
+# Stage 1
+FROM python:3.7-alpine AS compile-image
+
+COPY requirements.txt .
+
+# Just collect and wont install
+RUN pip wheel --wheel-dir=/root/wheels -r requirements.txt
+
+# Stage 2
+FROM python:3.7-alpine AS build-image
+
+COPY --from=compile-image /root/wheels /root/wheels
+
+COPY requirements.txt .
+
+# Actual install happen
+RUN pip install --no-index --find-links=/root/wheels -r requirements.txt
+
+WORKDIR /bookstore
+
+ADD src /bookstore/src
+
+ENV PYTHONPATH=/bookstore/src
+CMD ["python", "/bookstore/src/routes.py"]
