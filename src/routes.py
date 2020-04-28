@@ -15,4 +15,4 @@ api.add_resource(ExternalBooksController, '/api/external-books/')
 api.add_resource(InternalBooksController, '/api/v1/books/','/api/v1/books/<id>' )
 
 if __name__ == '__main__':
-    app.run(port=8080)
+    app.run(host="0.0.0.0", port=5000, debug=True)
