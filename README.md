@@ -23,7 +23,7 @@
     1. Go to virutaul Machine or Host
             
     2. Create following folder
-        1. sudo mkdir -p /media/book-mysql
+       sudo mkdir -p /media/book-mysql
     
     3. Run the below docker command to start MySQL
        docker run --name book-mysql -d -e MYSQL_ROOT_PASSWORD="admin123" -e MYSQL_DATABASE=book_store -e MYSQL_USER=book -e MYSQL_PASSWORD="book123" -e TZ=America/Pacific -p 3306:3306 -v /media/book-mysql:/var/lib/mysql mysql:5.7.29
@@ -34,7 +34,7 @@
     5. Run the MySQL command to set up database
        docker exec -i book-mysql mysql  -u book -p'book123' < bookstore/src/db/books_schema.sql
 
-### Python Installation
+### Python Flask App
 
     1. Build the Book Store docker image
         1. Goto the bookstore folder
@@ -52,7 +52,7 @@
          http://<<yourip>>:5000/api/external-books/
    
 
-### Steps to run Unit & Functionality test
+### Pytest for Unit Test
 
     1. Go into the Book Store container
         docker exec -it book_store_app /bin/sh 
