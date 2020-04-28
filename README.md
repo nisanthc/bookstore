@@ -4,7 +4,7 @@
 
 ### Docker Installation
 
-    1. Go to virutaul Machine or Host
+    1. Go to virutaul Machine or Host (centos)
             
     2. Install Docker using below commands
         1. sudo yum install -y yum-utils
@@ -45,7 +45,7 @@
         1. Create a log folder 
            sudo mkdir -p /media/book-app
         2. Run the Docker container
-             docker run -d -p 5000:5000 --link book-mysql -e DB_HOST=book-mysql -e DB_USER=book -e DB_PASSWORD=book123 -e DB_DATABASE=book_store -e DB_PORT=3306 -v /media/book-app/:/logs --name book_store_app book_store_image
+           docker run -d -p 5000:5000 --link book-mysql -e DB_HOST=book-mysql -e DB_USER=book -e DB_PASSWORD=book123 -e DB_DATABASE=book_store -e DB_PORT=3306 -v /media/book-app/:/logs --name book_store_app book_store_image
     
     3. Open the below URL in browser
          http://127.0.0.1:5000/api/external-books/  or 
