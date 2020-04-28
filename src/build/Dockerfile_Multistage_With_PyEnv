@@ -1,0 +1,25 @@
+#FROM python:3.7-slim AS compile-image
+# Stage 1
+FROM python:3.7-alpine AS compile-image
+
+RUN python -m venv /opt/venv
+
+ENV PATH="/opt/venv/bin:$PATH"
+
+RUN pip install --upgrade pip
+
+RUN pip install Flask==0.10.1 flask-restful==0.3.7 requests==2.22.0 jsonschema==3.0.1 mysql-connector-python==8.0.16 pytest==5.0.0 pytest-cov==2.7.1 pytest-html==1.21.1
+
+# Stage 2
+FROM python:3.7-alpine AS build-image
+
+COPY --from=compile-image /opt/venv /opt/venv
+
+ENV PATH="/opt/venv/bin:$PATH"
+
+WORKDIR /bookstore
+
+ADD src /bookstore/src
+
+ENV PYTHONPATH=/bookstore/src
+CMD ["python", "/bookstore/src/routes.py"]
